@@ -1,0 +1,20 @@
+<div *ngIf="false; else elseBlock">
+    <p>Utilisateur en ligne !</p>
+
+    <ul>
+        <li>Nom : {{ name }}</li>
+        <li>Prénom : {{ firstname }}</li>
+        <li>Email : {{ email }}</li>
+    </ul>
+</div>
+<ng-template #elseBlock>
+    <p>Aucun utilisateur n'est actuellement connecté.</p>
+</ng-template>
+
+<ul *ngFor="let elem of directories; let index = index; let first = first; let odd = odd">
+    <li [class.blue-text]="first" [class.big-text]="odd">Dossier n°{{ index }} : {{ elem.name }}</li>
+</ul>
+
+<p [class]="style">Un texte au hasard..</p>
+
+<button (click)="changeColor()">Changer couleur du texte</button>
