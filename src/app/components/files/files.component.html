@@ -1,5 +1,11 @@
-<div *ngFor="let dir of directories; let index = index">
-    <app-directory [index]="index" [name]="dir.name" [img]="dir.img" [files]="dir.files"></app-directory>
+<div class="row">
+    <div *ngFor="let dir of directories; let index = index">
+        <app-directory (displayFiles)="setCurrent($event)" [index]="index" [name]="dir.name" [img]="dir.img" [files]="dir.files"></app-directory>
+    </div>
 </div>
 
-
+<div *ngIf="current != null && current.display">
+    <ul>
+        <li *ngFor="let f of current.files">{{ f.name }}</li>
+    </ul>
+</div>
