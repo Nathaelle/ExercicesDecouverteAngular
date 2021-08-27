@@ -18,7 +18,9 @@ export class FilesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.directories = this._filesService.getDirectories();
+    this._filesService.getDirectories().subscribe( datas => { 
+      this.directories = datas;
+    });
   }
 
   setCurrent(current: DirectoryComponent) {
