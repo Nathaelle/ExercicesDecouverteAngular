@@ -1,11 +1,12 @@
 <nav id="menu">
   <ul class="row">
-    <li *ngFor="let o of onglets; let index = index" (click)="setCurrent(index)" class="onglet" [class.active]="o.active">{{ o.name }}</li>
+    <li *ngFor="let o of onglets; let index = index" (click)="setCurrent(index)" class="onglet" [class.active]="o.active">
+      <a [routerLink]="o.selector">{{ o.name }}</a>
+    </li>
   </ul>
 </nav>
 
-
-<div *ngIf='current.selector === "home"; else secondBlock' class="block">
+<!-- <div *ngIf='current.selector === "home"; else secondBlock' class="block">
   <app-home></app-home>
 </div>
 
@@ -19,7 +20,12 @@
   <div class="block">
     <app-user></app-user>
   </div>
-</ng-template>
+</ng-template> -->
+
+<div class="block">
+  <router-outlet></router-outlet>
+</div>
+
 
 
 

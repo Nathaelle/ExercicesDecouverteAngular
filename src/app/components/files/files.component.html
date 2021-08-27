@@ -6,6 +6,11 @@
 
 <div *ngIf="current != null && current.display">
     <ul>
-        <li *ngFor="let f of current.files">{{ f.name }}</li>
+        <li (click)="showPdf(index)" class="file-selector" *ngFor="let f of current.files; let index = index">{{ f.name }} - Date création : {{ f.created_at }}</li>
     </ul>
+</div>
+
+<div *ngIf="displayPdf">
+    <button (click)="close()">CLOSE</button>
+    <embed class="pdf-viewer" [src]="secureUrl" type="application/pdf">
 </div>

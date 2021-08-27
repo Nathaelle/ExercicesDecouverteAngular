@@ -7,5 +7,5 @@ export interface Directory {
 export interface File {
     name: string;
     path: string;
-    created_at: string;
+    created_at: Date;
 }

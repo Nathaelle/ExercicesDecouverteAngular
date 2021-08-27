@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Directory } from 'src/app/idatas';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import { Directory, File } from 'src/app/idatas';
 import { FilesService } from 'src/app/services/files.service';
 import { DirectoryComponent } from '../directory/directory.component';
 
@@ -13,8 +14,15 @@ export class FilesComponent implements OnInit {
   directories: Directory[];
   current?: DirectoryComponent;
 
-  constructor(private _filesService: FilesService) { 
+  displayPdf: boolean;
+  fileToDisplay: File;
+  secureUrl: SafeResourceUrl;
+
+  constructor(private _filesService: FilesService, private _s: DomSanitizer) { 
     this.directories = [];
+    this.displayPdf = false;
+    this.fileToDisplay = <File>{};
+    this.secureUrl = <SafeResourceUrl>{};
   }
 
   ngOnInit() {
@@ -32,6 +40,20 @@ export class FilesComponent implements OnInit {
     } else {
       this.current = null;
     }
+  }
+
+  showPdf(index: number) {
+
+    if(this.current != null) {
+      this.fileToDisplay = this.current.files[index];
+      this.secureUrl = this._s.bypassSecurityTrustResourceUrl(this.fileToDisplay.path);
+      this.displayPdf = true;
+    }
+  }
+
+  close() {
+    this.displayPdf = false;
+    this.fileToDisplay = <File>{};
   }
 
 }

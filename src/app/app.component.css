@@ -35,42 +35,49 @@
 }
 
 .block {
-    width: calc(50% - 4px);
-    height: 450px;
-    border: 2px solid rgb(139, 207, 209);
+    width: calc(60% - 4px);
+    min-height: 50vh;
+    border: 2px solid rgba(56, 120, 180, 0.5);
     margin: auto;
-    border-radius: 10px;
+    margin-top: 2em;
 }
 
 #menu {
-  width: 50%;
-  margin: auto;
+  background-color: rgb(56, 120, 180);
 }
 
 #menu ul {
+  width: 60%;
+  margin: auto;
   list-style: none;
   padding: 0;
   justify-content: space-evenly;
 }
 
 .onglet {
-  background-color: cadetblue;
-  padding: 1em;
-  width: 30%;
+  background-color: rgb(45, 98, 148);
+  width: 25%;
   font-size: 1.5em;
   text-align: center;
   color: white;
 }
 
+.onglet a {
+  display: block;
+  padding: 1em;
+  width: calc(100% - 2em);
+  color: white;
+}
+
 .onglet:hover {
-  background-color: rgb(139, 207, 209);
+  background-color: rgba(255, 255, 255, 0.1);
   cursor: pointer;
 }
 
 .active {
-  background-color: rgb(238, 73, 155);
+  background-color: rgb(73, 199, 238);
 }
 
 .onglet.active:hover {
-  background-color: rgb(238, 73, 155);
+  background-color: rgb(73, 199, 238);
 }

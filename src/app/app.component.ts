@@ -20,17 +20,22 @@ export class AppComponent implements OnInit {
     this.onglets = [
       {
         name: "Home",
-        selector: "home",
+        selector: "/home",
         active: true
       },
       {
         name: "Mes fichiers",
-        selector: "files",
+        selector: "/files",
         active: false
       },
       {
         name: "Gérer mes informations",
-        selector: "infos",
+        selector: "/user",
+        active: false
+      },
+      {
+        name: "Mes jeux",
+        selector: "/games",
         active: false
       }
     ];

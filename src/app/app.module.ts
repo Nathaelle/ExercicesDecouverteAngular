@@ -8,6 +8,9 @@ import { DirectoryComponent } from './components/directory/directory.component';
 import { FilesComponent } from './components/files/files.component';
 import { HomeComponent } from './components/home/home.component';
 import { FilesService } from './services/files.service';
+import { AppRoutingModule } from './app-routing.module';
+import { GamesComponent } from './components/games/games.component';
+import { DemineurComponent } from './components/demineur/demineur.component';
 
 @NgModule({
   declarations: [
@@ -15,11 +18,14 @@ import { FilesService } from './services/files.service';
     UserComponent,
     DirectoryComponent,
     FilesComponent,
-    HomeComponent
+    HomeComponent,
+    GamesComponent,
+    DemineurComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     FilesService
