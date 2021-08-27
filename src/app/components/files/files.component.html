@@ -1,6 +1,6 @@
 <div class="row">
     <div *ngFor="let dir of directories; let index = index">
-        <app-directory (displayFiles)="setCurrent($event)" [index]="index" [name]="dir.name" [img]="dir.img" [files]="dir.files"></app-directory>
+        <app-directory (displayFiles)="setCurrent($event)" [index]="index"></app-directory>
     </div>
 </div>
 

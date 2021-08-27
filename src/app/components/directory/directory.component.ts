@@ -1,4 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { File } from "src/app/idatas";
+import { FilesService } from 'src/app/services/files.service';
 
 @Component({
   selector: 'app-directory',
@@ -8,18 +10,18 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class DirectoryComponent implements OnInit {
 
   @Input() index: number;
-  @Input() name: string;
-  @Input() img: string;
-  @Input() files: File[];
+  name: string;
+  img: string;
+  files: File[];
 
   @Output() displayFiles: EventEmitter<DirectoryComponent>;
 
   display: boolean;
 
-  constructor() { 
+  constructor(private _filesService: FilesService) { 
     this.index = -1;
     this.name = "";
-    this.img = "";
+    this.img =  "";
     this.files = [];
     this.display = false;
 
@@ -27,6 +29,9 @@ export class DirectoryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.name = this._filesService.getDirectory(this.index).name;
+    this.img =  this._filesService.getDirectory(this.index).img;
+    this.files = this._filesService.getDirectory(this.index).files;
   }
 
   showFiles() {
