@@ -9,7 +9,7 @@ export class DemineurComponent implements OnInit {
 
   private _cases: Array<Array<Case>>;
   private _width: number;
-  private _height: number
+  private _height: number;
 
   constructor() {
       this._height = 15;
