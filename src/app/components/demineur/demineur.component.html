@@ -1,4 +1,4 @@
 <div class="row" *ngFor="let row of cases">
-    <div class="cell" *ngFor="let cell of row">
+    <div (click)="onClick(cell)" (contextmenu)="onRightClick($event, cell)" class="cell" [class.hasBomb]="cell.hasBomb" [class.clicked]="cell.clicked" [class.marked]="cell.marked" *ngFor="let cell of row">
     </div>
 </div>
